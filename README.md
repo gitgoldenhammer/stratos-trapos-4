@@ -77,7 +77,7 @@ echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bash_profile &
 go version 
 go mod tidy
 ```
-## Source code ile binary dosyayı derliyoruz. 
+## Source code ile binary dosyayı derliyoruz.  (go mod tidy hata verirse devam edin)
 
 ```
 git clone https://github.com/stratosnet/stratos-chain.git
@@ -158,7 +158,7 @@ sudo systemctl restart stratosd
 * Görselde ki gibi loglar akıcak, 1-2-3 diye başlıyacak sizde.
 
 ```
-journalctl -u stratosd -f
+journalctl -u stratosd -f -o cat
 ```
 ![image](https://user-images.githubusercontent.com/101149671/181054052-5f6415e1-b513-4429-86b3-c5cc83b77807.png)
 
@@ -170,7 +170,7 @@ journalctl -u stratosd -f
 * Eşleşmesi max 30-60 dakika arası sürer.
 
 ```
-status 2>&1 | jq .SyncInfo
+stchaind status 2>&1 | jq .SyncInfo
 ```
 
 ![image](https://user-images.githubusercontent.com/101149671/181054593-3a2eab44-1aa5-4efa-917f-d161e87130c0.png)
